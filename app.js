@@ -49,7 +49,7 @@ inputE1.addEventListener("keyup", function (e) {
 });
 
 /* COMMENTS 
-FUNCTION DEFINITIONS
+ ************ FUNCTION DEFINITIONS  ************ 
 1.fetchAPI
 fetchAPI is getting the URL. The Result is fetching the url and 'then' waiting for the response (res)
 and converting the response in json. Then logs the result in inspect console. YOU can click the word
@@ -83,7 +83,7 @@ In this case, the word's meaning might not be applicable or might not be availab
 
 
 
-EVENT LISTENERS**********************************
+ ************ EVENT LISTENERS  ************ 
 1. INPUTE1...
 This is an event listener for the input field
 it listens for the 'keyup' event = when a key is pressed, this key will do something , e.g. just like a 'click' button
@@ -92,10 +92,6 @@ e.key =  the specific key that was pressed when the event occurred in this case 
 SO if there's something written on the(input box) and if the Enter key is pressed. 
 and both conditions are met, then use the text on the input box to fetch data from an API.
 THEN - we run the fetchAPI function.
-
-2.
-
-
 
 
 */
