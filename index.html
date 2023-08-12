@@ -15,29 +15,57 @@
 -->
 
     <!--************ English Dictionary Div  ***********-->
-    <div class="container">
-      <h1 class="heading">English Dictionary</h1>
-      <input
-        placeholder="Search any word"
-        type="text"
-        class="input"
-        id="input"
-      />
-      <p class="info-text" id="info-text">Type a word and press enter</p>
-      <div class="meaning-container" id="meaning-container">
-        <p>Word Title: <span class="title" id="title"> ___ </span></p>
-        <p>Meaning: <span class="meaning" id="meaning"> ___ </span></p>
-        <audio src="" controls id="audio"></audio>
+    <div class="flex-container">
+      <div class="container">
+        <h1 class="heading">English Dictionary</h1>
+        <input
+          placeholder="Search any word"
+          type="text"
+          class="input"
+          id="input"
+        />
+        <p class="info-text" id="info-text">Type a word and press enter</p>
+        <div class="meaning-container" id="meaning-container">
+          <p>Word Title: <span class="title" id="title"> ___ </span></p>
+          <p>Meaning: <span class="meaning" id="meaning"> ___ </span></p>
+          <audio src="" controls id="audio"></audio>
+        </div>
+      </div>
+
+      <!-- **************************   Dad joke generating     ******************  -->
+      <div class="containerDG">
+        <h1 class="headingDG">Dad Joke Generator</h1>
+        <p class="jokeDG" id="joke">Dad jokes</p>
+        <button class="btnDG" id="btn">Tell me a Joke..</button>
+      </div>
+
+      <!-- **************************  Feedback Emoji Ratings   ******************  -->
+      <div class="containerFD" id="container">
+        <h1 class="headingFD">How are you feeling today?</h1>
+        <div class="ratings-containerFD" id="ratings container">
+          <div class="rating">
+            <img
+              src="https://img.icons8.com/?size=512&id=6mcux5vUOw6v&format=png"
+            />
+            <small>happy</small>
+          </div>
+          <div class="rating">
+            <img
+              src="https://img.icons8.com/?size=512&id=2ZpnL3wOfYKB&format=png"
+            />
+            <small>angry</small>
+          </div>
+          <div class="rating">
+            <img
+              src="https://img.icons8.com/?size=512&id=YF2CznaVzEeM&format=png"
+            />
+            <small>satisfied</small>
+          </div>
+        </div>
+
+        <button class="btnFD" id="btn">Send Review</button>
       </div>
     </div>
-
-    <!-- **************************   Dad joke generating     ******************  -->
-    <div class="containerDG">
-      <h1 class="headingDG">Dad Joke Generator</h1>
-      <p class="jokeDG" id="joke">Dad jokes</p>
-      <button class="btnDG" id="btn">Tell me a Joke..</button>
-    </div>
-
     <script src="app.js"></script>
   </body>
 </html>
