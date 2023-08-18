@@ -23,6 +23,7 @@ async function fetchAPI(word) {
 
     //AFTER RESULT OF API is fetched.Run the below CONDITION.
     //This condition shows what we want to see when word is bad = N/A not applicable and word is good.
+    //result.title = If API call contains a title property. Means word not found in the dictionary,
     if (result.title) {
       infoTextE1.style.display = "none"; //dont want "searching the meaning of..." shown with Mcontainer
       meaningContainerE1.style.display = "block"; //shows Mcontainer
@@ -54,7 +55,7 @@ inputE1.addEventListener("keyup", function (e) {
 //************ Dad Joke Generator JS Functionality ************
 
 //1.VARIABLE DECLARATIONS...........................................
-const btnE1 = document.getElementById("btn"); //target button from index.HTML
+const btnE1 = document.getElementById("btnD"); //target button from index.HTML
 const jokeE1 = document.getElementById("joke"); //Access the joke and show it in the container
 const apikey = "5bcIRr65A05WwQt9jtcCIw==Ogx4vv8z1BM4ejnW"; //get from profile in apininjas.
 const apiURL = "https://api.api-ninjas.com/v1/dadjokes?limit=1";
@@ -74,7 +75,7 @@ async function getJoke() {
     btnE1.innerText = "Loading...."; //message which appears on the button
 
     const response = await fetch(apiURL, options).then((res) => res.json());
-
+    console.log(response); // shows joke in console
     //After API is fetched and above code is finished running:
 
     jokeE1.innerText = response[0].joke; //shows joke INSIDE container,[0]=gets first joke in data array
@@ -89,11 +90,87 @@ async function getJoke() {
 //EVENT LISTENERS..............
 btnE1.addEventListener("click", getJoke);
 
+//************ Random Quote Generator JS Functionality ************
+//Variuable Definitions
+const quoteE1 = document.getElementById("quote"); //Access the quote and show it in the container
+const btnRQE1 = document.getElementById("btnRQ"); //target button from index.HTML
+const authorContainerE1 = document.getElementById("author-container");
+const authorE1 = document.getElementById("author");
+const categoryE1 = document.getElementById("category");
+const apiKeyRQ = "5bcIRr65A05WwQt9jtcCIw==Ogx4vv8z1BM4ejnW"; //get from profile in apininjas.
+const apiurlRQ = "https://api.api-ninjas.com/v1/quotes?category=";
+const optionsRQ = {
+  method: "GET",
+  headers: {
+    "X-Api-Key": apiKeyRQ,
+  },
+};
+
+//Function Definitions
+async function getquote() {
+  try {
+    //WHAT YOU WANT TO SEE BEFORE FETCHING API
+    authorContainerE1.style.display = "none";
+
+    quoteE1.innerText = "Relax quotes are updating... "; //shows message before fetching api quotes
+    btnRQE1.disabled = true; //disables the button so that quote can load
+    btnRQE1.innerText = "Loading...."; //message which appears on the button
+
+    const resultRQ = await fetch(apiurlRQ, optionsRQ).then((res) => res.json());
+    console.log(resultRQ); // shows quote in console
+
+    //WHAT YOU WANT TO SEE AFTER FETCHING API:
+
+    quoteE1.innerText = resultRQ[0].quote; //shows quote INSIDE container,[0]=gets first quote in data array
+    authorContainerE1.style.display = "block";
+    authorE1.innerText = resultRQ[0].author; //shows author name
+    categoryE1.innerText = resultRQ[0].category; // shows category
+    btnRQE1.disabled = false; //removes disabled button allowing button to be pressed again
+    btnRQE1.innerText = "I want a quote ...."; //message which appears on the button
+  } catch (error) {
+    quoteE1.innerText = "Error happened, try again later";
+    console.log(error);
+  }
+}
+
+//Event listeners
+//EVENT LISTENERS..............
+btnRQE1.addEventListener("click", getquote);
+
+/**************************   BMI Index calculator    ****************** */
+//1*Variable declarations
+const calcBMI = document.getElementById("calculateBtn"); //target button from index.HTML
+const yourBMI = document.getElementById("inputbmi");
+const weightCD = document.getElementById("weightcd");
+
+//2*Function Definitions
+//Before Data display.
+/*height and weight value inside, so that when the button is clicked, 
+most recent user inputs are calulated and 
+not initial values which come when page loads.
+*/
+function getBMI() {
+  const heightValue = document.getElementById("heightV").value / 100;
+  const weightValue = document.getElementById("weightV").value;
+
+  const bmiValue = weightValue / (heightValue * heightValue);
+
+  console.log(bmiValue); // shows height and weight value in console
+}
+
+//Fetch Data
+
+//After Data display:
+
+//3*EVENT LISTENERS..............
+calcBMI.addEventListener("click", getBMI);
+
 //************ Feedback EMOJI RATINGS  Functionality ************
+
 //VARIABLE DECLARATIONS...........................................
-const sendReviewBtnEl = document.getElementById("btn"); //target button from index.HTML
+const sendReviewBtnEl = document.getElementById("btnSR"); //target button from index.HTML
 const ratingsEls = document.querySelectorAll(".rating"); //Access all the classes with name of rating
-const containerEl = document.getElementById("container"); //accesses the container
+const containerEl = document.getElementById("containerEmoji"); //accesses the container
 let selectedRating = ""; //selectedRating value is an empty string
 
 //FUNCTION DEFINITIONS................................................

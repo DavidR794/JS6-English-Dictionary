@@ -17,6 +17,8 @@ body {
 
 .container,
 .containerDG,
+.containerRQG,
+.containerBMI,
 .containerFD {
   background-color: rgb(235, 218, 195);
   width: 500px;
@@ -28,7 +30,7 @@ body {
   font-size: 18px;
 }
 
-/********* English Dictionary CSS   ***********/
+/********* English Dictionary CSS   *********************************/
 .container {
   background-color: rgb(235, 218, 195);
   width: 500px;
@@ -65,7 +67,7 @@ body {
 /*meaning container display is none , in javascript we 
 dynamically show the container. */
 
-/************  Dad Joke Generator CSS  ************/
+/************  Dad Joke Generator CSS  ***********************************/
 .containerDG {
   background-color: rgb(235, 218, 195);
   width: 500px;
@@ -97,7 +99,95 @@ dynamically show the container. */
   cursor: pointer;
 }
 
-/************  Feedback Emoji Ratings  CSS  ************/
+/************  Random Quote Generator  CSS  *********************************/
+
+.containerRQG {
+  background-color: rgb(243, 210, 146);
+  width: 500px;
+  height: 200px;
+  padding: 150px;
+  border-radius: 10px;
+  margin: 10px;
+  max-width: 800px;
+  box-shadow: black;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 50;
+  top: 10%;
+  align-self: flex-start; /* Add this line to move the container to the left */
+  margin-bottom: 10px;
+}
+
+.headingRQG {
+  color: rgb(142, 38, 227);
+  font-size: 35px;
+  margin-bottom: 20px;
+}
+
+.quoteRQG {
+  color: blueviolet;
+}
+
+.author-containerRQG {
+  display: none;
+}
+/*meaning container display is none , in javascript we 
+dynamically show the container. */
+
+.authorRQG {
+  color: blueviolet;
+}
+
+.categoryRQG {
+  color: blueviolet;
+}
+
+.btnRQG {
+  background-color: yellow;
+  color: rgb(157, 42, 233); /*text colour*/
+  padding: 5px 10px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/************   BMI Index calculator  CSS  **********************************/
+.containerBMI {
+  background-color: rgb(243, 210, 146);
+  width: 500px;
+  height: 200px;
+  padding: 150px;
+  border-radius: 10px;
+  margin: 10px;
+  max-width: 800px;
+  box-shadow: black;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 50;
+  top: 10%;
+  align-self: flex-start; /* Add this line to move the container to the left */
+  margin-bottom: 10px;
+}
+.headingBMI {
+  color: rgb(142, 38, 227);
+  font-size: 35px;
+  margin-bottom: 20px;
+}
+.inputHT {
+  color: rgb(142, 38, 227);
+}
+
+.inputWT {
+  color: rgb(142, 38, 227);
+}
+.inputBMI {
+  color: rgb(142, 38, 227);
+}
+
+.btnBMI {
+  color: rgb(142, 38, 227);
+}
+
+/************  Feedback Emoji Ratings  CSS  **********************************/
 .containerFD {
   background-color: rgb(235, 218, 195);
   width: 500px;
@@ -105,9 +195,9 @@ dynamically show the container. */
   border-radius: 10px;
   border-color: rgb(0, 238, 255);
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-  bottom: 5%;
+  bottom: 100%;
   right: 100%;
-  margin-bottom: 10px;
+  margin-bottom: 300px;
 }
 
 .headingFD {

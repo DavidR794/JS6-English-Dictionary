@@ -32,15 +32,71 @@
         </div>
       </div>
 
+      <br />
+      <br />
+      <br />
+      <br />
+
       <!-- **************************   Dad joke generating     ******************  -->
       <div class="containerDG">
         <h1 class="headingDG">Dad Joke Generator</h1>
         <p class="jokeDG" id="joke">Dad jokes</p>
-        <button class="btnDG" id="btn">Tell me a Joke..</button>
+        <!--Joke is shown here-->
+        <button class="btnDG" id="btnD">Tell me a Joke..</button>
       </div>
 
+      <br />
+      <br />
+      <br />
+      <br />
+
+      <!-- **************************   Random quote generator    ******************  -->
+      <div class="containerRQG">
+        <h1 class="headingRQG">Random Quote Generator</h1>
+        <p class="quoteRQG" id="quote">Quotes</p>
+        <!--quote is shown here-->
+        <div class="author-containerRQG" id="author-container">
+          <p>author: <span class="authorRQG" id="author"> ___ </span></p>
+          <p>category: <span class="categoryRQG" id="category"> ___ </span></p>
+        </div>
+        <button class="btnRQG" id="btnRQ">Get quote..</button>
+      </div>
+
+      <br />
+      <br />
+      <br />
+      <br />
+
+      <!-- **************************   BMI Index calculator    ******************  -->
+      <div class="containerBMI">
+        <h1 class="headingBMI">Body Mass Index (BMI) Calculator</h1>
+        <p>
+          Your Height (cm):
+          <input
+            type="number"
+            class="inputHT"
+            id="heightV"
+            value="190"
+            placeholder="Enter your height in cm"
+          />
+        </p>
+        <p>
+          Your Weight (kg):
+          <input type="number" class="inputWT" id="weightV" />
+        </p>
+        <button class="btnBMI" id="calculateBtn">Calculate BMI</button>
+        <p>Your BMI: <input class="inputBMI" id="inputbmi" disabled /></p>
+        <!--disabled as it will load results in here-->
+        <p>Weight Condition: <span class="weightCD" id="weightcd"></span></p>
+      </div>
+
+      <br />
+      <br />
+      <br />
+      <br />
+
       <!-- **************************  Feedback Emoji Ratings   ******************  -->
-      <div class="containerFD" id="container">
+      <div class="containerFD" id="containerEmoji">
         <h1 class="headingFD">How are you feeling today?</h1>
         <div class="ratings-containerFD" id="ratings container">
           <div class="rating">
@@ -63,7 +119,7 @@
           </div>
         </div>
 
-        <button class="btnFD" id="btn">Send Review</button>
+        <button class="btnFD" id="btnSR">Send Review</button>
       </div>
     </div>
     <script src="app.js"></script>
