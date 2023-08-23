@@ -12,7 +12,7 @@ const audioE1 = document.getElementById("audio");
 //1.FetchAPI...
 async function fetchAPI(word) {
   try {
-    infoTextE1.style.display = "block"; // shows the text message.. "searching the meaning..
+    infoTextE1.style.display = "block"; // shows message= "searching the meaning..
     meaningContainerE1.style.display = "none"; //meaningcontainer not shown because api not run yet.
     infoTextE1.innerText = `Searching the meaning of "${word}"`;
 
@@ -23,7 +23,7 @@ async function fetchAPI(word) {
 
     //AFTER RESULT OF API is fetched.Run the below CONDITION.
     //This condition shows what we want to see when word is bad = N/A not applicable and word is good.
-    //result.title = If API call contains a title property. Means word not found in the dictionary,
+    //result.title = If API call contains a 'title' property. Means word not found in the dictionary,
     if (result.title) {
       infoTextE1.style.display = "none"; //dont want "searching the meaning of..." shown with Mcontainer
       meaningContainerE1.style.display = "block"; //shows Mcontainer
@@ -33,8 +33,8 @@ async function fetchAPI(word) {
     } else {
       infoTextE1.style.display = "none"; //dont want shown with Mcontainer
       meaningContainerE1.style.display = "block";
-      audioE1.style.display = "inline-flex";
-      titleE1.innerText = result[0].word;
+      audioE1.style.display = "inline-flex"; //CSS
+      titleE1.innerText = result[0].word; //1st word that comes
       meaningE1.innerText = result[0].meanings[0].definitions[0].definition;
       audioE1.src = result[0].phonetics[0].audio;
     }
@@ -110,7 +110,7 @@ const optionsRQ = {
 async function getquote() {
   try {
     //WHAT YOU WANT TO SEE BEFORE FETCHING API
-    authorContainerE1.style.display = "none";
+    authorContainerE1.style.display = "none"; //dont want to see authorcontainer
 
     quoteE1.innerText = "Relax quotes are updating... "; //shows message before fetching api quotes
     btnRQE1.disabled = true; //disables the button so that quote can load
@@ -150,12 +150,29 @@ most recent user inputs are calulated and
 not initial values which come when page loads.
 */
 function getBMI() {
-  const heightValue = document.getElementById("heightV").value / 100;
-  const weightValue = document.getElementById("weightV").value;
+  try {
+    const heightValue = document.getElementById("heightV").value / 100;
+    const weightValue = document.getElementById("weightV").value;
 
-  const bmiValue = weightValue / (heightValue * heightValue);
+    const bmiValue = weightValue / (heightValue * heightValue);
 
-  console.log(bmiValue); // shows height and weight value in console
+    console.log(bmiValue); // shows height and weight value in console
+
+    yourBMI.value = bmiValue; // shows value in inputbox'yourBMI'
+
+    if (bmiValue < 18.5) {
+      weightCD.innerText = "Underweight";
+    } else if (bmiValue <= 25.0) {
+      weightCD.innerText = "Healthy weight";
+    } else if (bmiValue >= 25.0 && bmiValue < 29.0) {
+      weightCD.innerText = "Overweight";
+    } else {
+      weightCD.innerText = "Obese";
+    }
+  } catch (error) {
+    //quoteE1.innerText = "Error happened, try again later";
+    console.log(error);
+  }
 }
 
 //Fetch Data
