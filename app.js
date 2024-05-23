@@ -1,6 +1,6 @@
 //************ English Dictionary JS Functionality ************
 
-//Variable declarations
+//1.Variable declarations
 const inputE1 = document.getElementById("input"); //accesses the input ( place to enter words)
 const infoTextE1 = document.getElementById("info-text");
 const meaningContainerE1 = document.getElementById("meaning-container");
@@ -8,7 +8,12 @@ const titleE1 = document.getElementById("title");
 const meaningE1 = document.getElementById("meaning");
 const audioE1 = document.getElementById("audio");
 
-//Function Definitions
+//Meaning Container = is container with the meaning text!
+//Info-text = shown below the word input box "`Searching the meaning of "${word}"`;"
+//"result[0].meanings[0].definitions[0]. - result[0] means the first element in the result array
+//result[0].meanings[0].definitions[0]. = the 'meanings' is inside 'result' and 'definitions' is inside 'meanings'
+
+//2.Function Definitions
 //1.FetchAPI...
 async function fetchAPI(word) {
   try {
@@ -32,7 +37,7 @@ async function fetchAPI(word) {
       audioE1.style.display = "none"; //dont want audio shown
     } else {
       infoTextE1.style.display = "none"; //dont want shown with Mcontainer
-      meaningContainerE1.style.display = "block";
+      meaningContainerE1.style.display = "block"; //SHOWS MContainer
       audioE1.style.display = "inline-flex"; //CSS
       titleE1.innerText = result[0].word; //1st word that comes
       meaningE1.innerText = result[0].meanings[0].definitions[0].definition;
@@ -43,7 +48,7 @@ async function fetchAPI(word) {
     infoTextE1.innerText = `An error occured, please try again later`;
   }
 }
-//Event Listeners
+//3.Event Listeners
 //1. INPUTE1...
 inputE1.addEventListener("keyup", function (e) {
   console.log(e.target.value);
@@ -66,7 +71,7 @@ const options = {
   },
 };
 
-//FUNCTION DEFINITIONS...............
+//2.FUNCTION DEFINITIONS...............
 // 1.Function getJoke()
 async function getJoke() {
   try {
@@ -87,11 +92,11 @@ async function getJoke() {
   }
 }
 
-//EVENT LISTENERS..............
+//3.EVENT LISTENERS..............
 btnE1.addEventListener("click", getJoke);
 
 //************ Random Quote Generator JS Functionality ************
-//Variuable Definitions
+//1.Variuable Definitions
 const quoteE1 = document.getElementById("quote"); //Access the quote and show it in the container
 const btnRQE1 = document.getElementById("btnRQ"); //target button from index.HTML
 const authorContainerE1 = document.getElementById("author-container");
@@ -106,7 +111,7 @@ const optionsRQ = {
   },
 };
 
-//Function Definitions
+//2.Function Definitions
 async function getquote() {
   try {
     //WHAT YOU WANT TO SEE BEFORE FETCHING API
@@ -133,17 +138,17 @@ async function getquote() {
   }
 }
 
-//Event listeners
+//3.Event listeners
 //EVENT LISTENERS..............
 btnRQE1.addEventListener("click", getquote);
 
 /**************************   BMI Index calculator    ****************** */
-//1*Variable declarations
+//1.Variable declarations
 const calcBMI = document.getElementById("calculateBtn"); //target button from index.HTML
 const yourBMI = document.getElementById("inputbmi");
-const weightCD = document.getElementById("weightcd");
+const weightCD = document.getElementById("weightcd"); //weight condition text
 
-//2*Function Definitions
+//2.Function Definitions
 //Before Data display.
 /*height and weight value inside, so that when the button is clicked, 
 most recent user inputs are calulated and 
@@ -158,7 +163,7 @@ function getBMI() {
 
     console.log(bmiValue); // shows height and weight value in console
 
-    yourBMI.value = bmiValue; // shows value in inputbox'yourBMI'
+    yourBMI.value = bmiValue; // shows value in inputbox 'Your BMI'
 
     if (bmiValue < 18.5) {
       weightCD.innerText = "Underweight";
@@ -179,25 +184,25 @@ function getBMI() {
 
 //After Data display:
 
-//3*EVENT LISTENERS..............
+//3.EVENT LISTENERS..............
 calcBMI.addEventListener("click", getBMI);
 
 //************ Feedback EMOJI RATINGS  Functionality ************
 
-//VARIABLE DECLARATIONS...........................................
+//1.VARIABLE DECLARATIONS...........................................
 const sendReviewBtnEl = document.getElementById("btnSR"); //target button from index.HTML
 const ratingsEls = document.querySelectorAll(".rating"); //Access all the classes with name of rating
 const containerEl = document.getElementById("containerEmoji"); //accesses the container
 let selectedRating = ""; //selectedRating value is an empty string
 
-//FUNCTION DEFINITIONS................................................
+//2.FUNCTION DEFINITIONS................................................
 function removeActive() {
   ratingsEls.forEach(function (ratingE1) {
     ratingE1.classList.remove("active");
   });
 }
 
-//EVENT LISTENERS.......................................................
+//3.EVENT LISTENERS.......................................................
 ratingsEls.forEach(function (ratingE1) {
   ratingE1.addEventListener("click", function (e) {
     removeActive();
